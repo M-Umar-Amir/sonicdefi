@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blockchain Medical System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Blockchain Medical System</h1>
+
+    <!-- Form to add a new patient -->
+    <div class="form-section">
+      <h2>Add Patient</h2>
+      <input type="text" id="patientAddress" placeholder="Patient Address" />
+      <input type="text" id="name" placeholder="Name" />
+      <input type="number" id="age" placeholder="Age" />
+      <textarea id="medicalHistory" placeholder="Medical History"></textarea>
+      <button id="addPatientButton">Add Patient</button>
+    </div>
+
+    <!-- Form to view a patient record -->
+    <div class="form-section">
+      <h2>View Patient</h2>
+      <input type="text" id="viewPatientAddress" placeholder="Patient Address" />
+      <button id="viewPatientButton">View Patient</button>
+
+      <div id="patientInfo">
+        <p id="patientName"></p>
+        <p id="patientAge"></p>
+        <p id="patientHistory"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include Ethers.js -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.4.5/dist/ethers.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
