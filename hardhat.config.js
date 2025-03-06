@@ -16,6 +16,10 @@ module.exports = {
     sonic: {
       url: "https://rpc.blaze.soniclabs.com",
       accounts: [SONIC_PRIVATE_KEY]
-    }
+    },
+    hardhat: {
+      // Hardhat Network settings
+      chainId: 1337,
+    },
   }
 };
