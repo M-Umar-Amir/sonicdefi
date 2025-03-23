@@ -16,7 +16,7 @@ window.onload = async () => {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
 
-  const contractAddress = "0xf2Bb73742657e30661c2cc74ADaA5E62790Fd107";  // Replace with your contract address
+  const contractAddress = "0xf2Bb73742657e30661c2cc74ADaA5E62790Fd107";  // Replace with your contract address  
   const abi = [
       "function addDoctor(address doctor) external",
       "function addPatient(address patientAddress, string memory name, uint256 age, string memory medicalHistory) external",
