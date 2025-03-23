@@ -1,41 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blockchain Medical System</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized Patient Records</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <script defer src="app.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #patientDetails {
+            margin-top: 20px;
+            text-align: left;
+            padding: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Blockchain Medical System</h1>
 
-    <!-- Form to add a new patient -->
-    <div class="form-section">
-      <h2>Add Patient</h2>
-      <input type="text" id="patientAddress" placeholder="Patient Address" />
-      <input type="text" id="name" placeholder="Name" />
-      <input type="number" id="age" placeholder="Age" />
-      <textarea id="medicalHistory" placeholder="Medical History"></textarea>
-      <button id="addPatientButton">Add Patient</button>
+    <h1>Decentralized Patient Records</h1>
+
+    <div class="container">
+        <h2>Add Patient</h2>
+        <input type="text" id="patientAddress" placeholder="Enter Patient Address">
+        <input type="text" id="name" placeholder="Enter Name">
+        <input type="number" id="age" placeholder="Enter Age">
+        <input type="text" id="medicalHistory" placeholder="Enter Medical History">
+        <button id="addPatientButton">Add Patient</button>
     </div>
 
-    <!-- Form to view a patient record -->
-    <div class="form-section">
-      <h2>View Patient</h2>
-      <input type="text" id="viewPatientAddress" placeholder="Patient Address" />
-      <button id="viewPatientButton">View Patient</button>
-
-      <div id="patientInfo">
-        <p id="patientName"></p>
-        <p id="patientAge"></p>
-        <p id="patientHistory"></p>
-      </div>
+    <div class="container">
+        <h2>View Patient</h2>
+        <input type="text" id="patientAddressView" placeholder="Enter Patient Address">
+        <button id="viewPatientButton">View Patient</button>
+        <h3>Patient Details:</h3>
+        <div id="patientDetails">No patient data loaded.</div>
     </div>
-  </div>
 
-  <!-- Include Ethers.js -->
-  <script src="https://cdn.jsdelivr.net/npm/ethers@5.4.5/dist/ethers.umd.min.js"></script>
-  <script src="app.js"></script>
 </body>
 </html>

@@ -16,7 +16,7 @@ window.onload = async () => {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
 
-  const contractAddress = "0xf2Bb73742657e30661c2cc74ADaA5E62790Fd107";  // Replace with your contract address  
+  const contractAddress = "0x1D7ab693906fCeDCEec4A231A9D9Ca78114b8847";  // Replace with your contract address  
   const abi = [
       "function addDoctor(address doctor) external",
       "function addPatient(address patientAddress, string memory name, uint256 age, string memory medicalHistory) external",
@@ -25,6 +25,9 @@ window.onload = async () => {
 
   const contract = new ethers.Contract(contractAddress, abi, signer);
 
+  await contract.addDoctor("0xf2Bb73742657e30661c2cc74ADaA5E62790Fd107");
+
+  // Add Patient
   document.getElementById("addPatientButton").addEventListener("click", async () => {
       try {
           const patientAddress = document.getElementById("patientAddress").value;
@@ -45,6 +48,39 @@ window.onload = async () => {
       } catch (error) {
           console.error("Error adding patient:", error);
           alert(`Failed to add patient: ${error.message}`);
+      }
+  });
+
+  // View Patient
+  document.getElementById("viewPatientButton").addEventListener("click", async () => {
+      try {
+          const patientAddress = document.getElementById("patientAddressView").value;
+
+          if (!ethers.utils.isAddress(patientAddress)) {
+              alert("Invalid Ethereum address!");
+              return;
+          }
+
+          const patientData = await contract.getPatient(patientAddress);
+
+          if (!patientData || !patientData[0]) {
+              alert("Patient not found!");
+              return;
+          }
+
+          const name = patientData[0];
+          const age = patientData[1];
+          const medicalHistory = patientData[2];
+
+          document.getElementById("patientDetails").innerHTML = `
+              <strong>Name:</strong> ${name} <br>
+              <strong>Age:</strong> ${age} <br>
+              <strong>Medical History:</strong> ${medicalHistory}
+          `;
+
+      } catch (error) {
+          console.error("Error fetching patient:", error);
+          alert(`Failed to retrieve patient: ${error.message}`);
       }
   });
 };

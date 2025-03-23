@@ -40,7 +40,7 @@ contract MedicalSystem {
         patients[patientAddress] = Patient(name, age, medicalHistory, msg.sender);
     }
 
-    function getPatient(address patientAddress) external view onlyDoctor returns (string memory, uint256, string memory) {
+    function getPatient(address patientAddress) public view onlyDoctor returns (string memory, uint256, string memory) {
         Patient memory p = patients[patientAddress];
         return (p.name, p.age, p.medicalHistory);
     }
