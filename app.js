@@ -16,7 +16,7 @@ window.onload = async () => {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
 
-  const contractAddress = "0x1D7ab693906fCeDCEec4A231A9D9Ca78114b8847";  // Replace with your contract address  
+  const contractAddress = "0x9c0F3d80Fc94DC322cb107aCfee759228028389F";  // Replace with your contract address  
   const abi = [
       "function addDoctor(address doctor) external",
       "function addPatient(address patientAddress, string memory name, uint256 age, string memory medicalHistory) external",
@@ -24,8 +24,6 @@ window.onload = async () => {
   ];
 
   const contract = new ethers.Contract(contractAddress, abi, signer);
-
-  await contract.addDoctor("0xf2Bb73742657e30661c2cc74ADaA5E62790Fd107");
 
   // Add Patient
   document.getElementById("addPatientButton").addEventListener("click", async () => {

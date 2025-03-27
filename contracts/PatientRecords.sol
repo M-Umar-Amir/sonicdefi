@@ -26,6 +26,7 @@ contract MedicalSystem {
 
     constructor() {
         admin = msg.sender;
+        doctors[msg.sender] = true;
     }
 
     function addDoctor(address doctor) external onlyAdmin {
